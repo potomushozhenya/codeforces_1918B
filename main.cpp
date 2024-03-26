@@ -1,24 +1,32 @@
 #include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 
 int main() {
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
     int t;
     std::cin>>t;
-    std::vector<std::vector<int>> a(t);
-    std::vector<std::vector<int>> b(t);
     for (int i = 0; i < t; ++i) {
         int n;
         std::cin>>n;
-        std::vector<int> currA(n);
-        std::vector<int> currB(n);
+        std::pair<int, int> curr[n];
         for (int j = 0; j < n; ++j) {
-            std::cin>>currA[j];
+            std::cin>>curr[j].first;
         }
         for (int j = 0; j < n; ++j) {
-            std::cin>>currB[j];
+            std::cin>>curr[j].second;
         }
-        a[i] = currA;
-        b[i] = currB;
+        std::sort(curr,curr+n);
+        for(int j = 0;j < n;++j)
+        {
+            std::cout << curr[j].first << ' ';
+        }
+        std::cout << "\n";
+        for(int j = 0;j < n;++j)
+        {
+            std::cout << curr[j].second << ' ';
+        }
+        std::cout << "\n";
     }
-    std::cout<<a[0][0];
+
 }
